@@ -1,7 +1,7 @@
-# ==============================================================================
+# ===============================
 # PLANT DISEASE CLASSIFICATION ANALYSIS 
 # By Wangeci Njiru,  Abayo Otieno & Kigotho James
-# ==============================================================================
+# ===========================================
 
 rm(list = ls())
 setwd("/home/jeffjames/Documents/R/plantdatasets/Test2") 
@@ -82,9 +82,8 @@ cat("Total images loaded:", length(all_images), "\n")
 cat("Label distribution:\n")
 print(table(all_labels))
 
-# ==============================================================================
+
 # 2. FEATURE EXTRACTION
-# ==============================================================================
 
 # Function to extract comprehensive features from images
 extract_features <- function(img_list) {
@@ -164,9 +163,7 @@ cat("Total features extracted:", ncol(features_df) - 1, "\n")
 cat("Dataset dimensions:", nrow(features_df), "x", ncol(features_df), "\n")
 print(summary(features_df[, 1:9]))  # Show first 9 features
 
-# ==============================================================================
 # 3. EXPLORATORY DATA ANALYSIS (EDA)
-# ==============================================================================
 
 cat("\n=== EXPLORATORY DATA ANALYSIS ===\n")
 
@@ -280,9 +277,7 @@ print(p6)
 cat("Press Enter to continue to next plot...")
 readline()
 
-# ==============================================================================
 # ADDITIONAL ADVANCED VISUALIZATIONS
-# ==============================================================================
 
 # 7. Simple histogram comparison showing how image brightness varies
 cat("Generating histogram comparison for image brightness...\n")
@@ -582,9 +577,7 @@ preprocess_params <- preProcess(train_features, method = c("center", "scale"))
 train_features_scaled <- predict(preprocess_params, train_features)
 test_features_scaled <- predict(preprocess_params, test_features)
 
-# ==============================================================================
 # 6. MODEL TRAINING AND EVALUATION
-# ==============================================================================
 
 # Model 1: Logistic Regression (Multinomial)
 cat("\n--- Training Logistic Regression Model ---\n")
@@ -625,9 +618,7 @@ svm_model <- svm(
 svm_pred <- predict(svm_model, test_features_scaled)
 svm_accuracy <- confusionMatrix(svm_pred, test_labels)$overall['Accuracy']
 
-# ==============================================================================
 # 7. MODEL EVALUATION AND COMPARISON
-# ==============================================================================
 
 cat("\n=== MODEL PERFORMANCE COMPARISON ===\n")
 
@@ -664,9 +655,7 @@ if (length(importance_scores) > 0) {
   print(head(importance_df, 10))
 }
 
-# ==============================================================================
 # 8. ADVANCED VISUALIZATIONS
-# ==============================================================================
 
 cat("\n=== GENERATING ADVANCED VISUALIZATIONS ===\n")
 
@@ -719,9 +708,7 @@ if (best_model_name == "Logistic Regression") {
 cm_heatmap <- create_cm_heatmap(best_cm, best_model_name)
 print(cm_heatmap)
 
-# ==============================================================================
 # 9. FINAL SUMMARY AND INSIGHTS
-# ==============================================================================
 
 cat("\n" + paste(rep("=", 80), collapse = "") + "\n")
 cat("FINAL ANALYSIS SUMMARY\n")
