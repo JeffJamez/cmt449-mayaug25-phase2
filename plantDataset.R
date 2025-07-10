@@ -1,7 +1,7 @@
-# ===============================
+# ========================
 # PLANT DISEASE CLASSIFICATION ANALYSIS 
 # By Wangeci Njiru,  Abayo Otieno & Kigotho James
-# ===========================================
+# ================================
 
 rm(list = ls())
 setwd("/home/jeffjames/Documents/R/plantdatasets/Test2") 
